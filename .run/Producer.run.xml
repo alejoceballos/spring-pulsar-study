@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Producer" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <envs>
+      <env name="JAVA_TOOL_OPTIONS" value="-javaagent:pulsar-producer/src/main/resources/opentelemetry-javaagent.jar" />
+      <env name="OTEL_SERVICE_NAME" value="otel-service-name" />
+    </envs>
+    <module name="pulsar-producer" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="momo2x.study.pulsar.producer.PulsarProducerApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
