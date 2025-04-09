@@ -1,0 +1,39 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+processors:
+  attributes:
+    actions:
+      - key: team
+        action: insert
+        value: vorozco
+exporters:
+  debug:
+  prometheus:
+    endpoint: "0.0.0.0:8889"
+  otlphttp:
+    endpoint: "http://loki:3100/otlp"
+  otlp:
+    endpoint: "tempo:4317"
+    tls:
+      insecure: true
+service:
+  extensions: [zpages]
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [attributes]
+      exporters: [debug,prometheus]
+    traces:
+      receivers: [otlp]
+      exporters: [debug, otlp]
+    logs:
+      receivers: [otlp]
+      exporters: [debug, otlphttp]
+extensions:
+  zpages:
+    endpoint: "0.0.0.0:55679"
