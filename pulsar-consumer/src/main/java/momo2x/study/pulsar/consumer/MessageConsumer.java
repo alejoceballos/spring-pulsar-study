@@ -20,9 +20,12 @@ public class MessageConsumer {
 
     @PulsarListener(subscriptionName = SUBSCRIPTION_NAME, topics = TOPIC_NAME)
     @WithSpan(value = SPAN_NAME, kind = CONSUMER)
-    void onTopicOneMessage(Message<String> message) {
-        log.info("-> onTopicOneMessage - Trace ID: {}, Message: {}",
-                Span.current().getSpanContext().getTraceId(),
+    void onTopicOneMessage(final Message<String> message) {
+        final var span = Span.current();
+
+        log.info(" --> MessageConsumer.onTopicOneMessage(...) - Trace ID: {}, Span ID: {}, Message: {}",
+                span.getSpanContext().getTraceId(),
+                span.getSpanContext().getSpanId(),
                 message.getValue());
     }
 
