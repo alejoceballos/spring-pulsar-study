@@ -21,11 +21,11 @@ public class MessageProducer {
     private final PulsarTemplate<String> pulsarTemplate;
 
     @WithSpan(value = SPAN_NAME, kind = PRODUCER)
-    public void produce() {
+    public void produceToTopicOne() {
         final var span = Span.current().addEvent("Span Event: " + TOPIC_NAME);
         final var message = UUID.randomUUID().toString();
 
-        log.info("-> onTopicOneMessage - Trace ID: {}, Message: {}",
+        log.info("-> produceToTopicOne - Trace ID: {}, Message: {}",
                 span.getSpanContext().getTraceId(),
                 message);
 

@@ -19,7 +19,7 @@ public class PulsarProducerApplication {
 
     @Bean
     ApplicationRunner runner(MessageProducer messageProducer) {
-        return args -> messageProducer.produce();
+        return args -> messageProducer.produceToTopicOne();
     }
 
 }
