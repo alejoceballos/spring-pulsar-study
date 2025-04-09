@@ -2,12 +2,25 @@
 
 <!-- TOC -->
 * [Pulsar & OpenTelemetry](#pulsar--opentelemetry)
-    * [OpenTelemetry references:](#opentelemetry-references)
+  * [A Simple image of what I'm doing here](#a-simple-image-of-what-im-doing-here)
+    * [What have I already achieved?](#what-have-i-already-achieved)
+  * [OpenTelemetry references:](#opentelemetry-references)
     * [Check this out!](#check-this-out)
-    * [Next Steps:](#next-steps)
+  * [Next Steps:](#next-steps)
 <!-- TOC -->
 
-### OpenTelemetry references:
+## A Simple image of what I'm doing here
+
+![Spring + Pulsar + OpenTelemetry](./README.files/Spring-Pulsar-OpenTelemetry.png)
+
+### What have I already achieved?
+
+1. Producing message to a pulsar topic
+2. Consuming the message from the pulsar topic
+3. Tracing using OTEL Java Agent and OTEL Collector
+4. Logs and Tracing sent to Grafana through Tempo and Loki
+
+## OpenTelemetry references:
 
 - [Java Agent](https://opentelemetry.io/docs/zero-code/java/agent/) (Zero-code instrumentation)
   - [Annotations](https://opentelemetry.io/docs/zero-code/java/agent/annotations/) (@WithSpan, @SpanAttribute)
@@ -24,7 +37,6 @@ It seems to be a complete guide to put the entire ecosystem working!
 
 - [A practical guide to implement OpenTelemetry in Spring Boot](https://vorozco.com/blog/2024/2024-11-18-A-practical-guide-spring-boot-open-telemetry.html)
 
-### Next Steps:
+## Next Steps:
 
-- Grafana Tempo & Dashboard
-- Non-Spring Boot applications
+- Tracing with Non-Spring Boot applications
