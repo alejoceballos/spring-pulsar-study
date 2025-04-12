@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Service 02" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <envs>
+      <env name="JAVA_TOOL_OPTIONS" value="-javaagent:service-2/src/main/resources/opentelemetry-javaagent.jar" />
+      <env name="OTEL_SERVICE_NAME" value="otel-pulsar-service-02" />
+    </envs>
+    <module name="service-2" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="momo2x.study.pulsar.service02.Main" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

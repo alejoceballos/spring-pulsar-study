@@ -15,12 +15,21 @@
     <packaging>pom</packaging>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>21</java.version>
+        <maven.compiler.source>21</maven.compiler.source>
+        <maven.compiler.target>21</maven.compiler.target>
+        <logback.version>1.5.18</logback.version>
+        <opentelemetry.instrumentation.version>2.14.0</opentelemetry.instrumentation.version>
+        <opentelemetry.instrumentation.logback.version>2.14.0-alpha</opentelemetry.instrumentation.logback.version>
+        <junit.jupiter.version>5.11.4</junit.jupiter.version>
     </properties>
 
     <modules>
-        <module>pulsar-producer</module>
-        <module>pulsar-consumer</module>
+        <module>service-1</module>
+        <module>service-2</module>
+        <module>service-3</module>
+        <module>service-4</module>
     </modules>
 
     <dependencyManagement>
@@ -28,7 +37,7 @@
             <dependency>
                 <groupId>io.opentelemetry.instrumentation</groupId>
                 <artifactId>opentelemetry-instrumentation-bom</artifactId>
-                <version>2.14.0</version>
+                <version>${opentelemetry.instrumentation.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

@@ -28,6 +28,7 @@ services:
     command: [ "--config.file=/etc/prometheus/prometheus.yml" ]
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml
+      - data-prometheus:/prometheus
     ports:
       - "9091:9090"
     networks:
@@ -73,3 +74,6 @@ networks:
   study-network:
     name: study-network
     driver: bridge
+
+volumes:
+  data-prometheus:
