@@ -10,10 +10,6 @@
 
     <artifactId>service-3</artifactId>
 
-    <properties>
-        <pulsar.version>4.0.4</pulsar.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.apache.pulsar</groupId>
