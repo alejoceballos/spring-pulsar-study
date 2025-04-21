@@ -1,0 +1,33 @@
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: "0.0.0.0:4317"
+      http:
+        endpoint: "0.0.0.0:4318"
+processors:
+  attributes:
+    actions:
+      - key: team
+        action: insert
+        value: vorozco
+exporters:
+  debug:
+  otlphttp:
+    endpoint: "http://loki:3100/otlp"
+  otlp:
+    endpoint: "tempo:4317"
+    tls:
+      insecure: true
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [attributes]
+      exporters: [debug]
+    traces:
+      receivers: [otlp]
+      exporters: [debug, otlp]
+    logs:
+      receivers: [otlp]
+      exporters: [debug, otlphttp]

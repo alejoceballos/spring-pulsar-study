@@ -1,0 +1,25 @@
+otelcol.receiver.otlp "default" {
+    grpc { }
+    http { }
+    output {
+        logs    = [otelcol.exporter.otlphttp.loki.input]
+        traces  = [otelcol.exporter.otlp.tempo.input]
+    }
+}
+
+otelcol.exporter.otlphttp "loki" {
+    client {
+        endpoint           = "http://loki:3100/otlp"
+        http2_ping_timeout = "0s"
+    }
+}
+
+otelcol.exporter.otlp "tempo" {
+    client {
+        endpoint = "tempo:4317"
+        tls {
+            insecure             = true
+            insecure_skip_verify = true
+        }
+    }
+}

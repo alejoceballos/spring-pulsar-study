@@ -9,16 +9,37 @@ services:
     networks:
       - study-network
 
-  otel:
-    container_name: otel
-    image: otel/opentelemetry-collector-contrib
-    command: [ "--config=/etc/otel-config.yml" ]
+#  otel:
+#    container_name: otel
+#    image: otel/opentelemetry-collector-contrib
+#    command: [ "--config=/etc/otel-config.yml" ]
+#    volumes:
+#      - ./otel-config.yml:/etc/otel-config.yml
+#    ports:
+#      - "4318:4318"
+#      - "4317:4317"
+#      - "55679:55679"
+#    networks:
+#      - study-network
+
+  # How to create an Alloy container using Docker:
+  #    https://grafana.com/docs/alloy/latest/set-up/install/docker/
+  # How to correctly define the container command:
+  #    https://github.com/grafana/agent/discussions/6970
+  # How to migrate from OTEL Collector to Grafana Alloy
+  #    https://grafana.com/docs/alloy/latest/set-up/migrate/from-otelcol/
+  #    alloy convert --source-format=otelcol --bypass-errors --output=config.alloy otel-config.yml
+  alloy:
+    container_name: alloy
+    image: grafana/alloy
+    command: [ "run", "/etc/alloy/config.alloy", "--server.http.listen-addr=0.0.0.0:12345", "--storage.path=/var/lib/alloy/data" ]
     volumes:
-      - ./otel-config.yml:/etc/otel-config.yml
+      - ./config.alloy:/etc/alloy/config.alloy
+      - ./otel-config-to-be-converted.yml:/etc/otel-config.yml
     ports:
+      - "12345:12345"
       - "4318:4318"
       - "4317:4317"
-      - "55679:55679"
     networks:
       - study-network
 
