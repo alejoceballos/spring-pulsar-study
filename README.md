@@ -13,6 +13,7 @@
   * [Docker references](#docker-references)
   * [Next Steps:](#next-steps)
     * [Split a message into two or more. All of them must have the same trace ID](#split-a-message-into-two-or-more-all-of-them-must-have-the-same-trace-id)
+    * [Keep alive applications](#keep-alive-applications)
 <!-- TOC -->
 
 ## A Simple image of what I'm doing here
@@ -93,3 +94,7 @@ It seems to be a complete guide to put the entire ecosystem working!
 
 If a consumed message must be transformed in two or more and using multithreading publish to other Pulsar topic(s), all 
 messages must keep the same trace ID.
+
+### Keep alive applications
+
+Find a away to start and keep alive applications even though Pulsar is not available
