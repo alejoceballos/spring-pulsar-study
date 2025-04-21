@@ -14,6 +14,8 @@
   * [Next Steps:](#next-steps)
     * [Split a message into two or more. All of them must have the same trace ID](#split-a-message-into-two-or-more-all-of-them-must-have-the-same-trace-id)
     * [Keep alive applications](#keep-alive-applications)
+  * [References](#references)
+    * [Grafana Alloy](#grafana-alloy)
 <!-- TOC -->
 
 ## A Simple image of what I'm doing here
@@ -98,3 +100,13 @@ messages must keep the same trace ID.
 ### Keep alive applications
 
 Find a away to start and keep alive applications even though Pulsar is not available
+
+## References
+
+### Grafana Alloy
+- https://grafana.com/docs/alloy/latest/set-up/install/docker/
+- https://grafana.com/docs/alloy/latest/collect/opentelemetry-to-lgtm-stack/
+- https://grafana.com/docs/alloy/latest/tutorials/send-logs-to-loki/
+- https://grafana.com/docs/tempo/latest/configuration/grafana-alloy/
+- https://grafana.com/blog/2023/11/16/the-grafana-opentelemetry-distribution-for-java-optimized-for-application-observability/
+- https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/collector/?pg=blog&plcmt=body-txt
