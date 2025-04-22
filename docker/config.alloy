@@ -4,6 +4,7 @@ otelcol.receiver.otlp "default" {
     output {
         logs    = [otelcol.exporter.otlphttp.loki.input]
         traces  = [otelcol.exporter.otlp.tempo.input]
+        metrics = [prometheus.remote_write.default]
     }
 }
 
@@ -22,4 +23,10 @@ otelcol.exporter.otlp "tempo" {
             insecure_skip_verify = true
         }
     }
+}
+
+prometheus.remote_write "default" {
+  endpoint {
+    url = "http://0.0.0.0:8889"
+  }
 }

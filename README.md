@@ -16,6 +16,7 @@
     * [Keep alive applications](#keep-alive-applications)
   * [References](#references)
     * [Grafana Alloy](#grafana-alloy)
+    * [Alloy + Prometheus (WIP)](#alloy--prometheus-wip)
 <!-- TOC -->
 
 ## A Simple image of what I'm doing here
@@ -110,3 +111,9 @@ Find a away to start and keep alive applications even though Pulsar is not avail
 - https://grafana.com/docs/tempo/latest/configuration/grafana-alloy/
 - https://grafana.com/blog/2023/11/16/the-grafana-opentelemetry-distribution-for-java-optimized-for-application-observability/
 - https://grafana.com/docs/grafana-cloud/monitor-applications/application-observability/collector/?pg=blog&plcmt=body-txt
+
+### Alloy + Prometheus (WIP)
+
+- https://www.google.com/search?client=firefox-b-d&channel=entpr&q=Grafana+Alloy+Prometheus
+- https://grafana.com/docs/alloy/latest/collect/prometheus-metrics/
+- https://grafana.com/docs/alloy/latest/reference/components/prometheus/prometheus.remote_write/
