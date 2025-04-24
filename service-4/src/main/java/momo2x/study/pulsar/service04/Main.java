@@ -15,6 +15,10 @@ public class Main {
         log.info("-> [Env] JAVA_TOOL_OPTIONS: \"{}\"", System.getenv("JAVA_TOOL_OPTIONS"));
         log.info("-> [Env] OTEL_SERVICE_NAME: \"{}\"", System.getenv("OTEL_SERVICE_NAME"));
 
+        log.info(" --> Configuring OpenTelemetry SDK");
+        Config.autoconfiguredSdk();
+        log.info(" --> OpenTelemetry SDK configured");
+
         try (final var pulsarClient =
                      PulsarClient
                              .builder()

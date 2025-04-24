@@ -1,6 +1,5 @@
 package momo2x.study.pulsar.service04;
 
-import io.opentelemetry.api.trace.Span;
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
@@ -54,7 +53,7 @@ public class Consumer {
     private void processMessage(
             final org.apache.pulsar.client.api.Consumer<String> consumer,
             final Message<String> message) {
-        final var span = Span.current();
+        final var span = Config.getTracer().spanBuilder("some-builder").startSpan();
 
         try {
             log.info(" --> Consumer.processMessage(...) - Trace ID: {}, Span ID: {}, Message: {}",
