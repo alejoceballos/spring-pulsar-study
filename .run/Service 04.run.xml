@@ -1,7 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Service 04" type="Application" factoryName="Application">
     <envs>
-      <env name="JAVA_TOOL_OPTIONS" value="-javaagent:service-4/src/main/resources/opentelemetry-javaagent.jar" />
       <env name="OTEL_SERVICE_NAME" value="otel-pulsar-service-04" />
     </envs>
     <option name="MAIN_CLASS_NAME" value="momo2x.study.pulsar.service04.Main" />

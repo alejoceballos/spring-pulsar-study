@@ -1,6 +1,8 @@
 package momo2x.study.pulsar.service04;
 
+import io.opentelemetry.api.incubator.trace.ExtendedSpanBuilder;
 import io.opentelemetry.api.trace.Span;
+import io.opentelemetry.api.trace.SpanKind;
 import org.apache.pulsar.client.api.Message;
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
@@ -54,18 +56,27 @@ public class Consumer {
     private void processMessage(
             final org.apache.pulsar.client.api.Consumer<String> consumer,
             final Message<String> message) {
-        final var span = Span.current();
+        ((ExtendedSpanBuilder) Config.getTracer().spanBuilder("Consumer"))
+                .setParentFrom(
+                        Config.getOpenTelemetrySdk().getPropagators(),
+                        message.getProperties())
+                .setSpanKind(SpanKind.CONSUMER)
+                .startAndRun(
+                        () -> {
+                            final var span = Span.current();
 
-        try {
-            log.info(" --> Consumer.processMessage(...) - Trace ID: {}, Span ID: {}, Message: {}",
-                    span.getSpanContext().getTraceId(),
-                    span.getSpanContext().getSpanId(),
-                    message.getValue());
+                            try {
+                                log.info(" --> Consumer.processMessage(...) - Trace ID: {}, Span ID: {}, Message: {}",
+                                        span.getSpanContext().getTraceId(),
+                                        span.getSpanContext().getSpanId(),
+                                        message.getValue());
 
-            consumer.acknowledge(message);
+                                consumer.acknowledge(message);
 
-        } catch (Exception e) {
-            consumer.negativeAcknowledge(message);
-        }
+                            } catch (Exception e) {
+                                consumer.negativeAcknowledge(message);
+                            }
+                        }
+                );
     }
 }
