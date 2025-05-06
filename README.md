@@ -6,14 +6,17 @@
     * [Description](#description)
       * [Technologies](#technologies)
       * [Architecture Elements](#architecture-elements)
+      * [Flow](#flow)
     * [What have I already achieved?](#what-have-i-already-achieved)
   * [Pulsar references:](#pulsar-references)
   * [OpenTelemetry references:](#opentelemetry-references)
   * [Logback references](#logback-references)
   * [Docker references](#docker-references)
   * [Next Steps:](#next-steps)
+    * [Yet to achieve:](#yet-to-achieve)
+    * [Use Grafana Alloy instead of OTEL Collector](#use-grafana-alloy-instead-of-otel-collector)
     * [Split a message into two or more. All of them must have the same trace ID](#split-a-message-into-two-or-more-all-of-them-must-have-the-same-trace-id)
-    * [Keep alive applications](#keep-alive-applications)
+    * [Keep applications alive](#keep-applications-alive)
 <!-- TOC -->
 
 ## A Simple image of what I'm doing here
