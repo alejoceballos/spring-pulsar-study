@@ -1,10 +1,10 @@
-package momo2x.study.pulsar.service04;
+package momo2x.study.pulsar.service05;
 
 import org.apache.pulsar.client.api.PulsarClient;
 import org.apache.pulsar.client.api.PulsarClientException;
 import org.slf4j.Logger;
 
-import static momo2x.study.pulsar.service04.Utils.SERVICE_URL;
+import static momo2x.study.pulsar.service05.Utils.SERVICE_URL;
 import static org.slf4j.LoggerFactory.getLogger;
 
 public class Main {

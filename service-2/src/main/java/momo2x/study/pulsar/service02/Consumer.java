@@ -19,6 +19,8 @@ public class Consumer {
 
     @PulsarListener(subscriptionName = SUBSCRIPTION_NAME, topics = TOPIC_ONE_NAME)
     void onTopicOneMessage(final Message<String> message) {
+        log.info(" --> Message[traceparent]: {}", message.getProperties().get("traceparent"));
+
         final var span = Span.current();
 
         log.info(" --> Consumer.onTopicOneMessage(...) - Trace ID: {}, Span ID: {}, Message: {}",
