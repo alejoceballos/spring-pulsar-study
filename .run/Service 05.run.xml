@@ -1,0 +1,18 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Service 05" type="Application" factoryName="Application">
+    <envs>
+      <env name="OTEL_SERVICE_NAME" value="otel-pulsar-service-05" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="momo2x.study.pulsar.service05.Main" />
+    <module name="service-5" />
+    <extension name="coverage">
+      <pattern>
+        <option name="PATTERN" value="momo2x.study.pulsar.service05.*" />
+        <option name="ENABLED" value="true" />
+      </pattern>
+    </extension>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

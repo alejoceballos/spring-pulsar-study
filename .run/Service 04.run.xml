@@ -7,7 +7,7 @@
     <module name="service-4" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="momo2x.study.pulsar.service03.*" />
+        <option name="PATTERN" value="momo2x.study.pulsar.service04.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
