@@ -56,6 +56,8 @@ public class Consumer {
     private void processMessage(
             final org.apache.pulsar.client.api.Consumer<String> consumer,
             final Message<String> message) {
+        log.info(" --> Message[traceparent]: {}", message.getProperties().get("traceparent"));
+
         final var span = Span.current();
 
         try {
