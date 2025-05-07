@@ -19,9 +19,11 @@ public class Consumer {
     private static final Logger log = getLogger(Consumer.class);
 
     private final PulsarClient pulsarClient;
+    private final Producer producer;
 
     public Consumer(final PulsarClient pulsarClient) {
         this.pulsarClient = pulsarClient;
+        this.producer = new Producer(pulsarClient);
     }
 
     public void startListening() {
@@ -56,6 +58,8 @@ public class Consumer {
     private void processMessage(
             final org.apache.pulsar.client.api.Consumer<String> consumer,
             final Message<String> message) {
+        log.info(" --> Message[traceparent]: {}", message.getProperties().get("traceparent"));
+
         ((ExtendedSpanBuilder) Config.getTracer().spanBuilder("Consumer"))
                 .setParentFrom(
                         Config.getOpenTelemetrySdk().getPropagators(),
@@ -70,6 +74,8 @@ public class Consumer {
                                         span.getSpanContext().getTraceId(),
                                         span.getSpanContext().getSpanId(),
                                         message.getValue());
+
+                                producer.produce(message.getValue());
 
                                 consumer.acknowledge(message);
 
