@@ -119,6 +119,19 @@ It seems to be a complete guide to put the entire ecosystem working!
 
 - [A practical guide to implement OpenTelemetry in Spring Boot](https://vorozco.com/blog/2024/2024-11-18-A-practical-guide-spring-boot-open-telemetry.html)
 
+⚠️ **NOTE:** If no protocol endpoint is specified in `tempo.yml`, `localhost` will be used. It prevented the
+_OTEL Collector_ from connecting to _Grafana Tempo_. In order to fix that issue I had to use `0.0.0.0` explicitly.
+```yaml
+distributor:
+  receivers:
+    otlp:
+      protocols:
+        http:
+          endpoint: 0.0.0.0:4318
+        grpc:
+          endpoint: 0.0.0.0:4317
+```
+
 ## Next Steps:
 
 ### Yet to achieve:
